@@ -730,9 +730,10 @@ namespace SumoPlayer {
         NezhaBrick.servoAngle(ServoPort.S4, 210)
         NezhaBrick.twoWheelSpeed(100, 100)
         while (ETsensorBOF.read() == Track.OffTrack && ETsensorDist.read() < 20) {
-            if (!Match.isPlaying()) return
+            if (!Match.isPlaying()) break
             basic.pause(1)
         }
+        NezhaBrick.twoWheelSpeed(0, 0)
     }
 
     //% block="run to the opponent"
