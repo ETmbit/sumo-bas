@@ -726,12 +726,13 @@ namespace SumoPlayer {
     //% block.loc.nl="duw de tegenstander"
     export function pushOpponent() {
         if (!Match.isPlaying()) return
-        if (ETsensorDist.read() > 10) return
+        if (ETsensorDist.read() > 20) return
         NezhaBrick.servoAngle(ServoPort.S4, 210)
         NezhaBrick.twoWheelSpeed(100, 100)
-        do {
+        while (ETsensorBOF.read() == Track.OffTrack && ETsensorDist.read() < 20) {
             if (!Match.isPlaying()) return
-        } while (ETsensorBOF.read() == Track.OffTrack)
+            basic.pause(1)
+        }
     }
 
     //% block="run to the opponent"
