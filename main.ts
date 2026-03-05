@@ -537,13 +537,12 @@ namespace NezhaBrick {
 
     // speed in %
     export function motorSpeed(port: MotorPort, speed: number): void {
-        speed = Math.map(speed, 0, 100, 0, 150)
 
         let iic_buffer = pins.createBuffer(4);
 
-        if (speed > 150) speed = 150
+        if (speed > 100) speed = 100
         else
-            if (speed < -150) speed = -150
+            if (speed < -100) speed = -100
 
         iic_buffer[0] = port + 1
         if (speed >= 0) {
