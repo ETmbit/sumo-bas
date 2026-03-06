@@ -5,7 +5,7 @@
         "core": "*",
         "radio": "*",
         "microphone": "*",
-        "match": "github:ETmbit/match#a77f983fa2b76e1cd31177fede0c5d20dd629c82"
+        "sumobuilder": "github:ETmbit/sumobuilder#529b470295720a60cf36600ca1ceec3898933093"
     },
     "files": [
         "main.blocks",
